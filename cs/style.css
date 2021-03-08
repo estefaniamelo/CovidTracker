@@ -1,0 +1,55 @@
+/* Flexbox for page */
+.flexbox{
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 300px;
+}    
+#leftside{
+    flex: 1 0 100px;
+}
+#rightside{
+    flex: 1 0 100px;
+    font-size: calc(.5em + .5vw);
+}
+#middle{
+    flex: 1 0 100px;
+    font-size: calc(.5em + .5vw);
+}
+/*Aligning daily and total numbers*/
+#provinces{
+    font-size: calc(1em + 1.5vw);
+}
+#date{
+    font-size: calc(1em + 1.5vw);
+}
+#title{
+    text-align: center;
+}
+#confirmed{
+    font-size: calc(1em + 1.5vw);
+}
+.casecount p{
+    display: inline-block;
+    word-wrap: break-word;
+    font-size: calc(1em + 1.5vw);
+}
+
+/*buttons for dates*/
+#previous_month,#next_month{
+    display: inline;
+    margin-right: 10px;
+}
+
+/* CSS for table */
+table, th, td{
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 0.5em;
+    background-color:aquamarine;
+    font-size: calc(.5em + 1vw);
+}
+
+tbody tr:nth-child(odd){
+    background-color: grey;
+    color: black;
+}

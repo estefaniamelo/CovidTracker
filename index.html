@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Link JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+    <script src="http://ejd.songho.ca/ios/covid19.json"></script>
+
+    <script src="https://www.songho.ca/js/Logger.js"></script>
+
+    <script defer src="js/main.js"></script>
+
+    <!-- Link CSS stylesheet -->
+    <link rel="stylesheet" href="cs/style.css">
+
+    <title>Coronavirus Tracker</title>
+</head>
+<body>
+    <h1 id="title">COVID-19 Canada</h1>
+
+    <!-- Drop down menu -->
+    <div class="flexbox">
+        <div id="leftside">
+        <label for="provinces">Province:</label><br>
+        <select name="provinces" id="provinces">
+                <option value="Canada">Canada</option>
+                <option value="Ontario">Ontario</option>
+                <option value="Quebec">Quebec</option>
+                <option value="British Columbia">British Columbia</option>
+                <option value="Alberta">Alberta</option>
+                <option value="Manitoba">Manitoba</option>
+                <option value="New Brunswick">New Brunswick</option>
+                <option value="Newfoundland">Newfoundland and Labrador</option>
+                <option value="Northwest Territoties">Northwest Territories</option>
+                <option value="Nova Scotia">Nova Scotia</option>
+                <option value="Nunavut">Nunavut</option>
+                <option value="Prince Edward Island">Prince Edward Island</option>
+                <option value="Saskatchewan">Saskatchewan</option>
+                <option value="Yukon">Yukon</option>
+            </select>
+ 
+            <p id="date">Date:</p>
+            <input type="button" value="<" id="previous_month">    
+            <input type="button" value=">" id="next_month">
+
+            <p id="confirmed">Confirmed Cases</p>
+            <span class="casecount">
+                <p>Daily</p>
+                <p>Total</p>
+            </span>
+            </p>
+        </div>
+
+
+        <!-- middle graph for daily confirmed cases -->
+        <div id="middle">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum voluptatum in et aut accusantium consequuntur cumque, reprehenderit voluptas necessitatibus ipsam quod ratione itaque vitae exercitationem! Aperiam ab recusandae debitis sapiente.
+        </div>
+
+        <!-- left graph for total confirmed cases -->
+        <div id="rightside">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas facilis fugiat, dicta nobis debitis culpa hic, iste amet veniam dolor natus itaque sapiente aspernatur saepe velit. Sapiente commodi porro quaerat.
+        </div>
+
+    </div>
+
+    <!-- Table to display information for selected province -->
+    <div id="table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Today Confirmed</th>
+                    <th>Total Confirmed</th>
+                    <th>Today Tested</th>
+                    <th>Total Tested</th>
+                    <th>Today Deaths</th>
+                    <th>Total Deaths</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</body>
+</html>
