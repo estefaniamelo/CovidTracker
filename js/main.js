@@ -58,14 +58,13 @@ function selectedProvince(prov){
 
     console.log(provData);
 
-    let lastDate = provData.length;
-    provData[lastDate-1];
+    let provLength = provData.length;
 
-    console.log(provData[lastDate-1]);
+    let lastDate = provData[provLength-1];
 
-    document.getElementById('dailycountnum').innerHTML =  provData[lastDate-1].numtoday;
+    document.getElementById('dailycountnum').innerHTML =  lastDate.numtoday;
 
-    document.getElementById('totalcountnum').innerHTML = provData[lastDate-1].numtotal;
+    document.getElementById('totalcountnum').innerHTML = lastDate.numtotal;
 
     return provSelected;
 }
