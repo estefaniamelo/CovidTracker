@@ -37,11 +37,23 @@ function selectedProvince(prov){
 
     let provData = [];
 
+    //here we create an array to store the dates for 
+    //the province selected by the user
     for(let i= 0; i < go.json.length; i++){
         if(go.json[i].prname == provSelected){
             provData.push(go.json[i]);
         }
     }
+
+    console.log(provData);
+
+    //sorting the dates in the array using a compare function 
+    provData.sort(function(a, b){
+        if(a > b) return 1;
+        if(a < b) return -1;
+        return 0;
+    });
+
 
     console.log(provData);
 
