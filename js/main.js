@@ -54,8 +54,18 @@ function selectedProvince(prov){
         return 0;
     });
 
+    let html = "";
 
     console.log(provData);
+
+    let lastDate = provData.length;
+    provData[lastDate-1];
+
+    console.log(provData[lastDate-1]);
+
+    document.getElementById('dailycountnum').innerHTML =  provData[lastDate-1].numtoday;
+
+    document.getElementById('totalcountnum').innerHTML = provData[lastDate-1].numtotal;
 
     return provSelected;
 }

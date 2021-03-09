@@ -28,11 +28,21 @@
 #confirmed{
     font-size: calc(1em + 1.5vw);
 }
-.casecount p{
+#dailycount, #totalcount{
     display: inline-block;
     word-wrap: break-word;
     font-size: calc(1em + 1.5vw);
+    padding-left: 8%;
+    flex: 1 0 100px;
 }
+#dailycountnum, #totalcountnum{
+    display: inline-block;
+    word-wrap: break-word;
+    font-size: calc(1em + 1.5vw);
+    padding-left: 8%;
+    flex: 1 0 100px;
+}
+
 
 /*buttons for dates*/
 #previous_month,#next_month{
@@ -54,3 +64,8 @@ tbody tr:nth-child(odd){
     color: black;
 }
 
+.casesflex{
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 100px;
+}
