@@ -77,6 +77,7 @@ function valuesArr(){
 
     let values = [];
 
+    //here we populate values array with all daily cases
     for(let e of provData){
 
         let currTime = new Date(e.date).getTime();
@@ -96,6 +97,7 @@ function valuesArr(){
 
     let dates = [];
 
+    //here we populate the dates array with all the string dates 
     for(let d of provData){
         let currDate = new Date(d.date);
 
@@ -104,9 +106,27 @@ function valuesArr(){
         dates[dateIndex] = d.date;
     }
 
+
+    //totals array stores the total number of cases since 2020-01-31
+    let totalTime = new Date(provData[0].date).getTime();
+
+    let totals = [];
+
+    for (let t of provData){
+
+        let currTime = new Date(t.date).getTime();
+
+        let totalIndex = (currTime-totalTime) / MS_PER_DAY;
+
+        totals[totalIndex] = t.numtotal;
+
+    }
+
     console.log("this is the values array " + values);
 
     console.log("these are the dates " + dates);
+
+    console.log("these are the total values " + totals);
 }
 
 
