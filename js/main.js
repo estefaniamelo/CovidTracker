@@ -18,6 +18,7 @@ function main(){
     
         go.json = data;
 
+
         }).catch( () => log("error loading JSON"));
 
     //$("option[value='canada']").prop("selected", true);
@@ -63,6 +64,8 @@ function selectedProvince(prov){
     document.getElementById('dailycountnum').innerHTML =  lastDate.numtoday;
 
     document.getElementById('totalcountnum').innerHTML = lastDate.numtotal;
+
+    updateValues("provinces");
 
     return provSelected;
 }
@@ -127,20 +130,52 @@ function valuesArr(){
     console.log("these are the dates " + dates);
 
     console.log("these are the total values " + totals);
+
+    let valuesLength = values.length;
+
+    let datesLength = dates.length;
+
+    let totalsLength = totals.length;
+
+    console.log(valuesLength);
+
+    console.log(datesLength);
+
+    console.log(totalsLength);
+
+    //compute the number of dates from first to the last date to determine the size of "values", "dates", and "totals"
+
 }
 
 
-// function updateValues(order){
-//     log(order);
 
-//     let html = "";
+function updateValues(order){
 
-//     go.json.forEach((e, i) => {
+    let html = "";
 
+    //date, numtoday, numtotal, numtested(total), numtestedtoday, numdeathstoday, numdeaths(total)
 
+    go.json.forEach((e, i) => {
 
-//     })
-// }
+        let province;
+
+        console.log(provData);
+
+        if(order == provData){
+
+            province = e.date + " " + e.numtoday + " " + e.numtotal + " " + e.numtestedtoday + " " + e.numtested + " " + e.numdeathstoday + " " + e.numdeaths; 
+        }
+
+        //generate <tr> for the table 
+        html += "<tr>" + 
+                "<td>" + (i + 1) + "</td>" +
+                "<td>" + province + "</td>"
+                "</tr>"
+        
+        $("#tableBody").html(html);
+    })
+}
+
 // const ctx= document.getElementById('chart1').getContext('2d');
 
 // const chart = new Chart(ctx, {
