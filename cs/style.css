@@ -3,46 +3,50 @@
     display: flex;
     flex-wrap: wrap;
     min-height: 300px;
+    justify-content: flex-start;
 }    
 #leftside{
-    flex: 1 0 100px;
+    flex: 1 0 200px;
 }
-#rightside{
-    flex: 1 0 100px;
-    font-size: calc(.5em + .5vw);
+#rightside{ 
+    flex: 1 0 300px;
 }
 #middle{
-    flex: 1 0 100px;
-    font-size: calc(.5em + .5vw);
-}
-/*Aligning daily and total numbers*/
-#provinces{
-    font-size: calc(1em + 1.5vw);
-}
-#date{
-    font-size: calc(1em + 1.5vw);
-}
-#title{
-    text-align: center;
-}
-#confirmed{
-    font-size: calc(1em + 1.5vw);
-}
-#dailycount, #totalcount{
-    display: inline-block;
-    word-wrap: break-word;
-    font-size: calc(1em + 1.5vw);
-    padding-left: 8%;
-    flex: 1 0 100px;
-}
-#dailycountnum, #totalcountnum{
-    display: inline-block;
-    word-wrap: break-word;
-    font-size: calc(1em + 1.5vw);
-    padding-left: 8%;
-    flex: 1 0 100px;
+    flex: 1 0 300px;
 }
 
+/*Aligning daily and total numbers*/
+.casesflex{
+    display: flex;
+}
+#provinces{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: calc(1em + 1vw);
+}
+#date{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: calc(1em + 1vw);
+}
+#title{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    color: #039590;
+    text-shadow: 1px 1px #2F4858;
+}
+#confirmed{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: calc(1em + 1vw);
+}
+#dailycount, #totalcount{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: calc(1em + 1vw);
+    padding-left: 8%;
+}
+#dailycountnum, #totalcountnum{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: calc(1em + 1vw);
+    padding-left: 8%;
+}
 
 /*buttons for dates*/
 #previous_month,#next_month{
@@ -51,21 +55,45 @@
 }
 
 /* CSS for table */
-table, th, td{
+table, td{
     border: 1px solid black;
     border-collapse: collapse;
     padding: 0.5em;
-    background-color:aquamarine;
     font-size: calc(.5em + 1vw);
+    font-family: Arial, Helvetica, sans-serif;
+}
+th{
+    background-color: #4bbc8e;
+}
+tr:nth-child(even){
+    background-color: slategray;
+    text-align: center
+}
+tr:nth-child(odd){
+    background-color: white;
+    text-align: center;
 }
 
-tbody tr:nth-child(odd){
-    background-color: grey;
-    color: black;
+#provinces option{
+    width: 100px;
 }
-
-.casesflex{
-    display: flex;
+#datedisplay{
+    display: inline-block;
+    word-wrap: break-word;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: calc(1em + 1vw);
+    padding-left: 8%;
+    flex: 1 0 100px;
     flex-wrap: wrap;
-    min-height: 100px;
 }
+canvas{
+    height: 75%;
+}
+
+@media only screen and (max-width: 600px) {
+    .flexbox{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }   
+  }

@@ -21,7 +21,7 @@ function main(){
 
         }).catch( () => log("error loading JSON"));
 
-    //$("option[value='canada']").prop("selected", true);
+    $("option[value='canada']").prop("selected", true);
 }
 
 
@@ -57,6 +57,8 @@ function selectedProvince(prov){
     document.getElementById('dailycountnum').innerHTML =  lastDate.numtoday;
 
     document.getElementById('totalcountnum').innerHTML = lastDate.numtotal;
+
+    document.getElementById('datedisplay').innerHTML = lastDate.date;
 
     populateValues();
 
@@ -132,6 +134,9 @@ function valuesArr(){
 
     }
 
+    makeChartLeft(values, dates);
+    makeChartRight(totals, dates);
+
     console.log(dates);
 }
 
@@ -139,12 +144,11 @@ function populateValues(){
 
     let html = "";
 
-    //date, numtoday, numtotal, numtested(total), numtestedtoday, numdeathstoday, numdeaths(total)
-
     var length = provData.length;
 
     console.log(length);
 
+    //This for loop cycles through the array and creates the rows with the data needed(cases, deaths, tests) in the HTML
     for(var i= provData.length-1; i >= 0; i--){
 
         html += "<tr>" +
@@ -164,4 +168,74 @@ function populateValues(){
     console.log("this is the populateValues length" + length);
 
     console.log(provData[0].numtoday);
+}
+
+function makeChartLeft(values, dates){
+
+    const ctx = document.getElementById('chartLeft').getContext('2d');
+//use this color palette #F9F871   https://mycolor.space/?hex=%23F9F871&sub=1
+    const chart = new Chart(ctx, {
+        type: 'line',
+        //labels: dates,
+        data: {
+            labels: dates,
+            datasets: [{
+                label: 'Daily Confirmed Cases',
+                data: values,
+                backgroundColor: 'rgba(22, 255, 22, 0.2)',
+                borderCapStyle: 'round',
+                borderColor: 'rgba(0, 255, 0, 0.5)',
+                pointBackgroundColor: 'rgba(133,233,240,0.5)',
+                pointBorderWidth: '0.9',
+                maintainAspectRatio: false,
+                // responsive: true,
+                borderWidth: 1,
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+
+}
+
+function makeChartRight(totals, dates){
+
+    const ctx = document.getElementById('chartRight').getContext('2d');
+
+    const chart = new Chart(ctx, {
+        type: 'line',
+        //labels: dates,
+        data: {
+            labels: dates,
+            datasets: [{
+                label: 'Daily Confirmed Cases',
+                data: totals,
+                backgroundColor: 'rgba(255, 255, 22, 0.2)',
+                borderCapStyle: 'round',
+                borderColor: 'rgba(255, 255, 0, 0.5)',
+                pointBackgroundColor: 'rgba(233,233,0,0.5)',
+                pointBorderWidth: '0.9',
+                // responsive: true,
+                maintainAspectRatio: false,
+                borderWidth: 1,
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+
 }

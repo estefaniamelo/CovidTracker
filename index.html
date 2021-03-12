@@ -28,8 +28,8 @@
     <!-- Drop down menu -->
     <div class="flexbox">
         <div id="leftside">
-        <label for="provinces">Province:</label><br>
-        <select name="provinces" id="provinces">
+            <label for="provinces">Province:</label><br>
+            <select name="provinces" id="provinces">
                 <option value="Canada">Canada</option>
                 <option value="Ontario">Ontario</option>
                 <option value="Quebec">Quebec</option>
@@ -45,11 +45,10 @@
                 <option value="Saskatchewan">Saskatchewan</option>
                 <option value="Yukon">Yukon</option>
             </select>
- 
+    
             <p id="date">Date:</p>
-            <input type="button" value="<" id="previous_month">    
-            <input type="button" value=">" id="next_month">
-
+            <p id="datedisplay"></p>
+            
             <p id="confirmed">Confirmed Cases</p>
             <span class="casesflex">
                 <p id="dailycount">Daily</p>
@@ -63,12 +62,14 @@
 
         <!-- middle graph for daily confirmed cases -->
         <div id="middle">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum officiis eos animi fugit ipsa, repellat id molestias modi cumque excepturi adipisci ut, numquam ipsam expedita culpa dolor, velit corporis libero?
+            <canvas id="chartLeft">
+            </canvas>
         </div>
 
         <!-- left graph for total confirmed cases -->
         <div id="rightside">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus ipsum quaerat nemo aspernatur modi tenetur animi? Nobis consectetur porro voluptas nisi nam impedit, dolore aut tempore cupiditate eius commodi error.
+            <canvas id="chartRight">
+            </canvas>
         </div>
 
     </div>
