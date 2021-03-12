@@ -44,13 +44,6 @@ function selectedProvince(prov){
         }
     }
  
-    //sorting the dates in the array using a compare function 
-    provData.sort(function(a, b){
-        if(a > b) return 1;
-        if(a < b) return -1;
-        return 0;
-    });
-
     valuesArr();
     console.log(provData);
 
@@ -65,7 +58,7 @@ function selectedProvince(prov){
 
     document.getElementById('totalcountnum').innerHTML = lastDate.numtotal;
 
-    updateValues("provinces");
+    populateValues();
 
     return provSelected;
 }
@@ -75,10 +68,31 @@ function valuesArr(){
     //calculates the ms 
     const MS_PER_DAY = 24 * 60 * 60 * 1000; //ms
 
+    //allocating values array with a given size and initiliazing it
+    let time1 = new Date(provData[0].date).getTime();
+    let time2 = new Date(provData[provData.length-1].date).getTime();
+
+    let valueCount = (time2-time1) / MS_PER_DAY + 1;
+    let values = new Array(valueCount).fill(0);
+
+    //Allocating dates array with a given size and initiliazing it 
+    let date1 = new Date(provData[0].date);
+    let date2 = new Date(provData[provData.length-1].date);
+
+    let dateCount = (date2-date1) / MS_PER_DAY + 1; 
+    let dates = new Array(dateCount).fill("");
+
+    //Allocating totals array with given size and initializing it 
+    let total1 = new Date(provData[0].date).getTime();
+    let total2 = new Date(provData[provData.length-1].date)
+
+    let totalCount = (total2-total1) / MS_PER_DAY + 1;
+
+    let totals = new Array(totalCount).fill(0);
+
+
     //values array stores all daily cases since 2020-01-31
     let firstTime = new Date(provData[0].date).getTime();
-
-    let values = [];
 
     //here we populate values array with all daily cases
     for(let e of provData){
@@ -87,18 +101,12 @@ function valuesArr(){
 
         let index = (currTime-firstTime) / MS_PER_DAY;
 
-        if(values[index] === typeof(undefined)){
-            values[index] = 0;
-        } 
-
         values[index] = e.numtoday;
     }
 
 
     //dates array stores all date strings since 2020-01-31
     let firstDate = new Date(provData[0].date);
-
-    let dates = [];
 
     //here we populate the dates array with all the string dates 
     for(let d of provData){
@@ -113,8 +121,7 @@ function valuesArr(){
     //totals array stores the total number of cases since 2020-01-31
     let totalTime = new Date(provData[0].date).getTime();
 
-    let totals = [];
-
+    //here we populate the totals array which contains a count of total cases
     for (let t of provData){
 
         let currTime = new Date(t.date).getTime();
@@ -125,86 +132,36 @@ function valuesArr(){
 
     }
 
-    console.log("this is the values array " + values);
-
-    console.log("these are the dates " + dates);
-
-    console.log("these are the total values " + totals);
-
-    let valuesLength = values.length;
-
-    let datesLength = dates.length;
-
-    let totalsLength = totals.length;
-
-    console.log(valuesLength);
-
-    console.log(datesLength);
-
-    console.log(totalsLength);
-
-    //compute the number of dates from first to the last date to determine the size of "values", "dates", and "totals"
-
+    console.log(dates);
 }
 
-
-
-function updateValues(order){
+function populateValues(){
 
     let html = "";
 
     //date, numtoday, numtotal, numtested(total), numtestedtoday, numdeathstoday, numdeaths(total)
 
-    go.json.forEach((e, i) => {
+    var length = provData.length;
 
-        let province;
+    console.log(length);
 
-        console.log(provData);
+    for(var i= provData.length-1; i >= 0; i--){
 
-        if(order == provData){
-
-            province = e.date + " " + e.numtoday + " " + e.numtotal + " " + e.numtestedtoday + " " + e.numtested + " " + e.numdeathstoday + " " + e.numdeaths; 
-        }
-
-        //generate <tr> for the table 
-        html += "<tr>" + 
-                "<td>" + (i + 1) + "</td>" +
-                "<td>" + province + "</td>"
+        html += "<tr>" +
+                "<td>" + (provData[i].date) + "</td>" +
+                "<td>" + (provData[i].numtoday) + "</td>" +
+                "<td>" + (provData[i].numtotal) + "</td>" +
+                "<td>" + (provData[i].numtested) + "</td>" +
+                "<td>" + (provData[i].numtestedtoday) + "</td>" +
+                "<td>" + (provData[i].numdeathstoday) + "</td>" +
+                "<td>" + (provData[i].numdeaths) + "</td>" +
                 "</tr>"
-        
-        $("#tableBody").html(html);
-    })
+
+    }
+
+    $("#tableBody").html(html);
+
+    console.log("this is the populateValues length" + length);
+
+    console.log(provData[0].numtoday);
 }
-
-// const ctx= document.getElementById('chart1').getContext('2d');
-
-// const chart = new Chart(ctx, {
-//     type: 'line',
-//     data: {
-//         labels: ['red', 'green', 'build'],
-//         datasets: [{
-//             label: '#of votes',
-//             data: [12, 19, 3],
-//             backgroundColor: [
-//                 'red',
-//                 'green',
-//                 'blue'
-//             ],
-//             borderColor: [
-//                 'red',
-//                 'green',
-//                 'blue'
-//             ],
-//             borderWidth: 1
-//         }]
-//     },
-//     options: {
-//         scales: {
-//             yAxes: [{
-//                 ticks: {
-//                     beginAtZero: true
-//                 }
-//             }]
-//         }
-//     }
-// });
