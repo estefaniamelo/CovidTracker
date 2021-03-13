@@ -3,17 +3,14 @@
     display: flex;
     flex-wrap: wrap;
     min-height: 300px;
-    justify-content: flex-start;
-}    
-#leftside{
-    flex: 1 0 200px;
-}
-#rightside{ 
-    flex: 1 0 300px;
-}
-#middle{
-    flex: 1 0 300px;
-}
+    --multiplier: calc(40rem - 100%);
+}  
+.flexbox > *{
+    min-width: 33%;
+    max-width: 100%;
+    flex-grow: 1;
+    flex-basis: calc(var(--multiplier) * 999);
+}  
 
 /*Aligning daily and total numbers*/
 .casesflex{
@@ -22,6 +19,10 @@
 #provinces{
     font-family: Arial, Helvetica, sans-serif;
     font-size: calc(1em + 1vw);
+}
+label{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: calc(1em + .5vw);
 }
 #date{
     font-family: Arial, Helvetica, sans-serif;
@@ -41,6 +42,7 @@
     font-family: Arial, Helvetica, sans-serif;
     font-size: calc(1em + 1vw);
     padding-left: 8%;
+    color: #2f4858;
 }
 #dailycountnum, #totalcountnum{
     font-family: Arial, Helvetica, sans-serif;
@@ -55,6 +57,13 @@
 }
 
 /* CSS for table */
+#completetable{
+    overflow-y: scroll;
+    min-width: 200px;
+    height: 200px;
+    scrollbar-width: thick;
+    scrollbar-color: #f9f871 #4bbc8e ;
+}
 table, td{
     border: 1px solid black;
     border-collapse: collapse;
@@ -66,8 +75,8 @@ th{
     background-color: #4bbc8e;
 }
 tr:nth-child(even){
-    background-color: slategray;
-    text-align: center
+    background-color: rgba(44, 50, 56, .30);
+    text-align: center;
 }
 tr:nth-child(odd){
     background-color: white;
@@ -81,19 +90,20 @@ tr:nth-child(odd){
     display: inline-block;
     word-wrap: break-word;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: calc(1em + 1vw);
-    padding-left: 8%;
+    font-size: calc(.5em + .7vw);
+    padding: 1%;
     flex: 1 0 100px;
     flex-wrap: wrap;
 }
 canvas{
     height: 75%;
 }
+#dailycountnum{
+    color: rgb(22, 255, 22);
+    text-shadow: .8px .8px #2F4858;
+}    
+#totalcountnum{
+    color: rgb(249, 248, 113);
+    text-shadow: .8px .8px #2F4858;
+}
 
-@media only screen and (max-width: 600px) {
-    .flexbox{
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-    }   
-  }

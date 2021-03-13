@@ -34,6 +34,7 @@ function selectedProvince(prov){
 
     log(provSelected);
 
+    //Initializing an empty array to fill with the information of the selected province
     provData = [];
 
     //here we create an array to store the dates for 
@@ -45,15 +46,12 @@ function selectedProvince(prov){
     }
  
     valuesArr();
-    console.log(provData);
 
     let provLength = provData.length;
-    console.log("this is the provLength " + provLength);
 
     let lastDate = provData[provLength-1];
-    console.log("this is the lastDate " + lastDate);
 
-    //the following 2 statements allow us to display the daily and total count of cases in the html 
+    //the following 2 statements allow us to display the daily and total count of cases in the html also display the date
     document.getElementById('dailycountnum').innerHTML =  lastDate.numtoday;
 
     document.getElementById('totalcountnum').innerHTML = lastDate.numtotal;
@@ -134,10 +132,9 @@ function valuesArr(){
 
     }
 
+    //Calls the functions that create the charts that display the data 
     makeChartLeft(values, dates);
     makeChartRight(totals, dates);
-
-    console.log(dates);
 }
 
 function populateValues(){
@@ -165,9 +162,6 @@ function populateValues(){
 
     $("#tableBody").html(html);
 
-    console.log("this is the populateValues length" + length);
-
-    console.log(provData[0].numtoday);
 }
 
 function makeChartLeft(values, dates){
@@ -187,7 +181,7 @@ function makeChartLeft(values, dates){
                 borderColor: 'rgba(0, 255, 0, 0.5)',
                 pointBackgroundColor: 'rgba(133,233,240,0.5)',
                 pointBorderWidth: '0.9',
-                maintainAspectRatio: false,
+                maintainAspectRatio: true,
                 // responsive: true,
                 borderWidth: 1,
             }]
@@ -215,15 +209,15 @@ function makeChartRight(totals, dates){
         data: {
             labels: dates,
             datasets: [{
-                label: 'Daily Confirmed Cases',
+                label: 'Total Confirmed Cases',
                 data: totals,
-                backgroundColor: 'rgba(255, 255, 22, 0.2)',
+                backgroundColor: 'rgba(249, 248, 113, 0.2)',
                 borderCapStyle: 'round',
-                borderColor: 'rgba(255, 255, 0, 0.5)',
-                pointBackgroundColor: 'rgba(233,233,0,0.5)',
+                borderColor: 'rgba(249, 248, 113, 0.5)',
+                pointBackgroundColor: 'rgba(249, 248, 113,0.5)',
                 pointBorderWidth: '0.9',
                 // responsive: true,
-                maintainAspectRatio: false,
+                maintainAspectRatio: true,
                 borderWidth: 1,
             }]
         },

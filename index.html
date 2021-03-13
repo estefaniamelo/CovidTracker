@@ -46,8 +46,8 @@
                 <option value="Yukon">Yukon</option>
             </select>
     
-            <p id="date">Date:</p>
-            <p id="datedisplay"></p>
+            <p id="date">Date:<span id="datedisplay"></span></p>
+           
             
             <p id="confirmed">Confirmed Cases</p>
             <span class="casesflex">
@@ -62,20 +62,20 @@
 
         <!-- middle graph for daily confirmed cases -->
         <div id="middle">
-            <canvas id="chartLeft">
+            <canvas id="chartLeft" height="250px">
             </canvas>
         </div>
 
         <!-- left graph for total confirmed cases -->
         <div id="rightside">
-            <canvas id="chartRight">
+            <canvas id="chartRight" height="275px">
             </canvas>
         </div>
 
     </div>
 
     <!-- Table to display information for selected province -->
-    <div>
+    <div id="completetable">
         <table id="table">
             <thead>
                 <tr>
