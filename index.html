@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+     <!--
+        Assignment 1: Calendar
+        Name: Estefania Melo
+        Student ID: 991590044
+        Course: SYST24444
+        Professor: Song Ho Ahn
+    -->
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,6 +24,7 @@
     <!-- Link CSS stylesheet -->
     <link rel="stylesheet" href="cs/style.css">
 
+    <!-- Link ChartJS -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
 
     
@@ -28,9 +36,10 @@
     <!-- Drop down menu -->
     <div class="flexbox">
         <div id="leftside">
+            <!-- Dropdown menu to select which province to display -->
             <label for="provinces">Province:</label><br>
             <select name="provinces" id="provinces">
-                <option value="Canada">Canada</option>
+                <option value="Canada" selected="selected">Canada</option>
                 <option value="Ontario">Ontario</option>
                 <option value="Quebec">Quebec</option>
                 <option value="British Columbia">British Columbia</option>
@@ -45,28 +54,33 @@
                 <option value="Saskatchewan">Saskatchewan</option>
                 <option value="Yukon">Yukon</option>
             </select>
-    
+            
+            <!-- Displays the date -->
             <p id="date">Date:<span id="datedisplay"></span></p>
            
-            
-            <p id="confirmed">Confirmed Cases</p>
+            <!-- Displays the number of daily and total cases -->
+            <p id="confirmed">Confirmed Cases:</p>
             <span class="casesflex">
-                <p id="dailycount">Daily</p>
-                <p id="totalcount">Total</p>
+                <span id="dailyboth">
+                    <div id="dailycount">Daily</div>
+                    <div id="dailycountnum"></div>
+                </span>
 
-                <p id="dailycountnum"></p>
-                <p id="totalcountnum"></p>
-            </span>
+                <span id="totalboth">
+                    <div id="totalcount">Total</div>
+                    <div id="totalcountnum"></div>
+                </span>    
+            </span>    
         </div>
 
 
-        <!-- middle graph for daily confirmed cases -->
+        <!-- Graph for daily confirmed cases -->
         <div id="middle">
             <canvas id="chartLeft" height="250px">
             </canvas>
         </div>
 
-        <!-- left graph for total confirmed cases -->
+        <!-- Graph for total confirmed cases -->
         <div id="rightside">
             <canvas id="chartRight" height="275px">
             </canvas>

@@ -15,45 +15,52 @@
 /*Aligning daily and total numbers*/
 .casesflex{
     display: flex;
+    padding-left: 50px;
+}
+#dailyboth, #totalboth{
+    padding: 2%;
 }
 #provinces{
     font-family: Arial, Helvetica, sans-serif;
     font-size: calc(1em + 1vw);
+    color: #4b4453;
+    text-shadow: .5px .5px #b0a8b9;
 }
 label{
     font-family: Arial, Helvetica, sans-serif;
     font-size: calc(1em + .5vw);
+    color: #c34a36;
+    text-shadow: .5px .5px #4b4453;
 }
 #date{
     font-family: Arial, Helvetica, sans-serif;
     font-size: calc(1em + 1vw);
+    color: #c34a36;
+    text-shadow: .5px .5px #4b4453;
 }
 #title{
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
-    color: #039590;
-    text-shadow: 1px 1px #2F4858;
+    color: #c34a36;
+    text-shadow: .5px .5px #4b4453;
 }
 #confirmed{
     font-family: Arial, Helvetica, sans-serif;
     font-size: calc(1em + 1vw);
+    color: #c34a36;
+    text-shadow: .8px .8px #4b4453;
 }
 #dailycount, #totalcount{
     font-family: Arial, Helvetica, sans-serif;
     font-size: calc(1em + 1vw);
     padding-left: 8%;
-    color: #2f4858;
+    color: #4b4453;
+    text-shadow: .8px .8px #b0a8b9;
 }
 #dailycountnum, #totalcountnum{
     font-family: Arial, Helvetica, sans-serif;
     font-size: calc(1em + 1vw);
     padding-left: 8%;
-}
-
-/*buttons for dates*/
-#previous_month,#next_month{
-    display: inline;
-    margin-right: 10px;
 }
 
 /* CSS for table */
@@ -62,7 +69,7 @@ label{
     min-width: 200px;
     height: 200px;
     scrollbar-width: thick;
-    scrollbar-color: #f9f871 #4bbc8e ;
+    scrollbar-color: #b0a8b9 #4b4453;
 }
 table, td{
     border: 1px solid black;
@@ -70,9 +77,11 @@ table, td{
     padding: 0.5em;
     font-size: calc(.5em + 1vw);
     font-family: Arial, Helvetica, sans-serif;
+    margin-top: 2%;
+    padding-left: 1%;
 }
 th{
-    background-color: #4bbc8e;
+    background-color: #b0a8b9;
 }
 tr:nth-child(even){
     background-color: rgba(44, 50, 56, .30);
@@ -90,20 +99,28 @@ tr:nth-child(odd){
     display: inline-block;
     word-wrap: break-word;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: calc(.5em + .7vw);
-    padding: 1%;
-    flex: 1 0 100px;
-    flex-wrap: wrap;
+    font-size: calc(.7em + .7vw);
+    padding: 2%;
+    color: #4b4453;
+    text-shadow: .5px .5px #b0a8b9;
 }
 canvas{
     height: 75%;
 }
 #dailycountnum{
-    color: rgb(22, 255, 22);
-    text-shadow: .8px .8px #2F4858;
+    color: rgb(255, 128, 102);
+    text-shadow: .8px .8px #4b4453;
 }    
 #totalcountnum{
-    color: rgb(249, 248, 113);
-    text-shadow: .8px .8px #2F4858;
+    color: rgb(132, 94, 194);
+    text-shadow: .8px .8px #4b4453;
+}
+#leftside{
+    display: grid;
+    border: 3px solid black;
+    border-radius: 5px;
+    box-shadow: 3px 3px slategray;
+    box-sizing: border-box;
+    grid-area: 1/1;
 }
 

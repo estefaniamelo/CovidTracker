@@ -1,3 +1,10 @@
+/**
+ *  Name: Estefania Melo
+ *  Student ID: 991590044
+ *  Course: SYST24444
+ *  Professor: Song Ho Ahn
+ */
+
 //global variables
 let go = {};
 
@@ -18,10 +25,11 @@ function main(){
     
         go.json = data;
 
+        $("#provinces").trigger('change');
 
         }).catch( () => log("error loading JSON"));
 
-    $("option[value='canada']").prop("selected", true);
+    $("option[value='Canada']").prop("selected", true);   
 }
 
 
@@ -176,10 +184,10 @@ function makeChartLeft(values, dates){
             datasets: [{
                 label: 'Daily Confirmed Cases',
                 data: values,
-                backgroundColor: 'rgba(22, 255, 22, 0.2)',
+                backgroundColor: 'rgba(255, 128, 102, 0.2)',
                 borderCapStyle: 'round',
-                borderColor: 'rgba(0, 255, 0, 0.5)',
-                pointBackgroundColor: 'rgba(133,233,240,0.5)',
+                borderColor: 'rgba(255, 128, 102, 0.8)',
+                pointBackgroundColor: 'rgba(255, 128, 102,0.5)',
                 pointBorderWidth: '0.9',
                 maintainAspectRatio: true,
                 // responsive: true,
@@ -202,6 +210,7 @@ function makeChartLeft(values, dates){
 function makeChartRight(totals, dates){
 
     const ctx = document.getElementById('chartRight').getContext('2d');
+    
 
     const chart = new Chart(ctx, {
         type: 'line',
@@ -211,10 +220,10 @@ function makeChartRight(totals, dates){
             datasets: [{
                 label: 'Total Confirmed Cases',
                 data: totals,
-                backgroundColor: 'rgba(249, 248, 113, 0.2)',
+                backgroundColor: 'rgba(132, 94, 194, 0.2)',
                 borderCapStyle: 'round',
-                borderColor: 'rgba(249, 248, 113, 0.5)',
-                pointBackgroundColor: 'rgba(249, 248, 113,0.5)',
+                borderColor: 'rgba(132, 94, 194, 0.8)',
+                pointBackgroundColor: 'rgba(132, 94, 194,0.5)',
                 pointBorderWidth: '0.9',
                 // responsive: true,
                 maintainAspectRatio: true,
