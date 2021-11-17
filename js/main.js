@@ -5,6 +5,7 @@
  *  Professor: Song Ho Ahn
  */
 
+//JSON file was saved from http://ejd.songho.ca/ios/covid19.json
 //global variables
 let go = {};
 
@@ -15,7 +16,7 @@ function main(){
 
     //loads JSON asynchronously
     let option = {
-        url: "http://ejd.songho.ca/ios/covid19.json",
+        url: "covid19.json",
         type: "GET",
         dataType: "json"
     }; 
